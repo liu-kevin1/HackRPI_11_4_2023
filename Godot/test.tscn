@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://docgt37o3ujb3"]
+[gd_scene load_steps=2 format=3 uid="uid://c7fgywe4lk4te"]
 
-[ext_resource type="Script" path="res://Node.gd" id="1_5ukvj"]
+[ext_resource type="Script" path="res://draw_path.gd" id="1_f64jx"]
 
 [node name="Sprite_Insert" type="Node"]
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource("1_5ukvj")
+[node name="draw_sprite" type="Node" parent="."]
+script = ExtResource("1_f64jx")
