@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b4b2di2ij788r"]
+[gd_scene load_steps=2 format=3 uid="uid://b4b2di2ij788r"]
+
+[ext_resource type="Script" path="res://level_select.gd" id="1_34r8s"]
 
 [node name="level_select" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_34r8s")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -23,3 +26,5 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 0
 text = "1"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Level_One" to="." method="_on_level_one_pressed"]

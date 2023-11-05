@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlvjch7r8ur34"]
+[gd_scene load_steps=23 format=3 uid="uid://dlvjch7r8ur34"]
 
+[ext_resource type="Script" path="res://test.gd" id="1_pwxip"]
 [ext_resource type="Script" path="res://main.gd" id="2_6kw2e"]
 [ext_resource type="Texture2D" uid="uid://b5sip2osxwrma" path="res://guinea_pig_run.png" id="2_ye7th"]
 [ext_resource type="Script" path="res://character.gd" id="3_0vi43"]
 [ext_resource type="Texture2D" uid="uid://b2seog7a1rc8p" path="res://Explosion_animation.png" id="4_yso1l"]
 [ext_resource type="Texture2D" uid="uid://bxa4klqwy20fe" path="res://kidsroom_bg1.PNG" id="5_p2dhq"]
+[ext_resource type="Script" path="res://LineEdit.gd" id="7_igytl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qeu2"]
 atlas = ExtResource("4_yso1l")
@@ -115,7 +117,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Theme" id="Theme_dbenb"]
+
 [node name="Sprite_Insert" type="Node"]
+script = ExtResource("1_pwxip")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -856.0
@@ -138,3 +143,14 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gtjmm")
 animation = &"empty"
 script = ExtResource("3_0vi43")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 507.0
+offset_top = 561.0
+offset_right = 648.0
+offset_bottom = 592.0
+theme = SubResource("Theme_dbenb")
+placeholder_text = "Enter Equation:"
+script = ExtResource("7_igytl")
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
