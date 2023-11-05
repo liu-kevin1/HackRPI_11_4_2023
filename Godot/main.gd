@@ -1,7 +1,7 @@
 extends Node
 
 #var drawer
-var run = false;
+var ran = false;
 
 # Called when the node enters the scene tree for the first time.
 func calculate():
@@ -19,7 +19,7 @@ func calculate():
 	#drawer.reparent(self)
 	for i in range(len(results)):
 		results[i][0] = results[i][0] #+ 100
-		results[i][1] = results[i][1] + 300
+		results[i][1] = results[i][1] - 300
 	
 	global.results = results;
 	print(global.results[0])
@@ -56,7 +56,6 @@ func createOBJECT(pos1, pos2, scale):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(!run):
-		if Input.is_action_just_pressed("left_click"):
-			global.run = true
-			calculate()
+	if(global.run and !ran):
+		calculate()
+		ran = true

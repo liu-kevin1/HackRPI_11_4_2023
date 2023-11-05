@@ -188,10 +188,11 @@ static func process_equation(equation, start, stop, step):
 		var result = evaluate(stack.pop_front(), env)
 		#print("Result")
 		#print(result)
-		if(i/scale > 1150):
+		if(i/scale * 18 > 1150):
 			global.win = true
 			return results
-		results.push_back(Vector2(i/scale, result))
+			
+		results.push_back(Vector2(i/scale * 20, result * 20 * -1 + 600))
 	return results
 
 # Called when the node enters the scene tree for the first time.
