@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlvjch7r8ur34"]
+[gd_scene load_steps=4 format=3 uid="uid://dlvjch7r8ur34"]
 
-[ext_resource type="Script" path="res://draw_path.gd" id="1_f64jx"]
 [ext_resource type="Script" path="res://main.gd" id="2_6kw2e"]
+[ext_resource type="Script" path="res://character.gd" id="3_0vi43"]
+[ext_resource type="Texture2D" uid="uid://bv1btm2uggveo" path="res://icon.svg" id="3_r713n"]
 
 [node name="Sprite_Insert" type="Node"]
 
 [node name="draw_sprite2" type="Node" parent="."]
-script = ExtResource("1_f64jx")
 
 [node name="Control" type="Control" parent="draw_sprite2"]
 layout_mode = 3
@@ -14,3 +14,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_6kw2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_r713n")
+script = ExtResource("3_0vi43")

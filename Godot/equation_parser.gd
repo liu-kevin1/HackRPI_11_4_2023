@@ -91,7 +91,7 @@ static func infix_to_postfix(tokens):
 					output.push_back(opstack.pop_front())
 				if len(opstack) == 0:
 					#print("0 length opstack")
-					print("0 length opstack what do we do")
+					#print("0 length opstack what do we do")
 					return
 				token.pair = opstack.pop_front()
 				token.pair.pair = token
@@ -186,20 +186,20 @@ static func process_equation(equation, start, stop, step):
 			}
 		}
 		var result = evaluate(stack.pop_front(), env)
-		print("Result")
-		print(result)
+		#print("Result")
+		#print(result)
 		results.push_back(Vector2(i/scale, result))
 	return results
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("ready and starting")
+	#print("ready and starting")
 	var test_equation := "sin(4x)-3"
 	var start := 0
 	var stop := 4
 	var step := 1
 	
-	print(process_equation(test_equation, start, stop, step))
+	#print(process_equation(test_equation, start, stop, step))
 	pass # Replace with function body.
 
 
