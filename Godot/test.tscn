@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlvjch7r8ur34"]
+[gd_scene load_steps=29 format=3 uid="uid://dlvjch7r8ur34"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_qdtt1"]
 [ext_resource type="Script" path="res://main.gd" id="2_6kw2e"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b2seog7a1rc8p" path="res://Explosion_animation.png" id="4_yso1l"]
 [ext_resource type="Texture2D" uid="uid://bxa4klqwy20fe" path="res://kidsroom_bg1.PNG" id="5_p2dhq"]
 [ext_resource type="Script" path="res://LineEdit.gd" id="7_igytl"]
+[ext_resource type="Texture2D" uid="uid://58ks7lw1svtv" path="res://table_parts2.0.png" id="8_t0fiq"]
+[ext_resource type="Texture2D" uid="uid://bcy7ebrn7ptoe" path="res://Guinea_pig_idle.png" id="9_i2qy2"]
+[ext_resource type="Script" path="res://AnimatedSprite2D2.gd" id="10_ygk82"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qeu2"]
 atlas = ExtResource("4_yso1l")
@@ -119,6 +122,29 @@ animations = [{
 
 [sub_resource type="Theme" id="Theme_dbenb"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w7s5"]
+atlas = ExtResource("9_i2qy2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg1ev"]
+atlas = ExtResource("9_i2qy2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2n7q5"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w7s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg1ev")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Sprite_Insert" type="Node"]
 script = ExtResource("1_qdtt1")
 
@@ -143,7 +169,7 @@ script = ExtResource("2_6kw2e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gtjmm")
-animation = &"empty"
+animation = &"explosion"
 script = ExtResource("3_0vi43")
 
 [node name="LineEdit" type="LineEdit" parent="."]
@@ -154,5 +180,17 @@ offset_bottom = 592.0
 theme = SubResource("Theme_dbenb")
 placeholder_text = "Enter Equation:"
 script = ExtResource("7_igytl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(119, 450)
+scale = Vector2(0.380307, 0.596191)
+texture = ExtResource("8_t0fiq")
+
+[node name="Idle_Guinea" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(97.75, 294.5)
+scale = Vector2(3.59375, 3.3125)
+sprite_frames = SubResource("SpriteFrames_2n7q5")
+script = ExtResource("10_ygk82")
 
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
