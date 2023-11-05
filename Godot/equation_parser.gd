@@ -188,6 +188,9 @@ static func process_equation(equation, start, stop, step):
 		var result = evaluate(stack.pop_front(), env)
 		#print("Result")
 		#print(result)
+		if(i/scale > 1150):
+			global.win = true
+			return results
 		results.push_back(Vector2(i/scale, result))
 	return results
 

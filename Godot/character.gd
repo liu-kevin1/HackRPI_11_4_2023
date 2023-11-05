@@ -11,3 +11,7 @@ func _process(delta):
 		position = global.results[i]
 		rotation = atan((global.results[i][1]-global.results[i+1][1])/(global.results[i][0]-global.results[i+1][0]))
 		i += 1;
+	elif(global.win):
+		print("you win")
+	elif(!global.win):
+		print("you loose")
