@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2seog7a1rc8p" path="res://Explosion_animation.png" id="4_yso1l"]
 [ext_resource type="Texture2D" uid="uid://bxa4klqwy20fe" path="res://kidsroom_bg1.PNG" id="5_p2dhq"]
 [ext_resource type="Script" path="res://LineEdit.gd" id="7_igytl"]
-[ext_resource type="Texture2D" uid="uid://58ks7lw1svtv" path="res://table_parts2.0.png" id="8_t0fiq"]
+[ext_resource type="Texture2D" uid="uid://liavsftnnrkb" path="res://table_parts2.0.png" id="8_t0fiq"]
 [ext_resource type="Texture2D" uid="uid://bcy7ebrn7ptoe" path="res://Guinea_pig_idle.png" id="9_i2qy2"]
 [ext_resource type="Script" path="res://AnimatedSprite2D2.gd" id="10_ygk82"]
 

@@ -3,7 +3,10 @@ extends Node
 
 
 func _on_line_edit_text_submitted(new_text):
-	idle_guinea.queue_free()
+	if(global.is_first):
+		idle_guinea.queue_free()
+		global.is_first = false
+	
 	global.run = true
 	global.just_ran = false
 	
