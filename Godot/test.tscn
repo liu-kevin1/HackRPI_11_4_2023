@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlvjch7r8ur34"]
+[gd_scene load_steps=20 format=3 uid="uid://dlvjch7r8ur34"]
 
 [ext_resource type="Script" path="res://main.gd" id="2_6kw2e"]
 [ext_resource type="Texture2D" uid="uid://b5sip2osxwrma" path="res://guinea_pig_run.png" id="2_ye7th"]
 [ext_resource type="Script" path="res://character.gd" id="3_0vi43"]
 [ext_resource type="Texture2D" uid="uid://b2seog7a1rc8p" path="res://Explosion_animation.png" id="4_yso1l"]
+[ext_resource type="Texture2D" uid="uid://bxa4klqwy20fe" path="res://kidsroom_bg1.PNG" id="5_p2dhq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qeu2"]
 atlas = ExtResource("4_yso1l")
@@ -116,6 +117,13 @@ animations = [{
 
 [node name="Sprite_Insert" type="Node"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -856.0
+offset_top = -327.0
+offset_right = 1939.0
+offset_bottom = 1721.0
+texture = ExtResource("5_p2dhq")
+
 [node name="draw_sprite2" type="Node" parent="."]
 
 [node name="Control" type="Control" parent="draw_sprite2"]
@@ -126,6 +134,7 @@ offset_bottom = 40.0
 script = ExtResource("2_6kw2e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gtjmm")
 animation = &"empty"
 script = ExtResource("3_0vi43")
