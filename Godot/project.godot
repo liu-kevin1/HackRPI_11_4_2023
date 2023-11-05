@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="Hack Rpi 11 4 2023"
+<<<<<<< HEAD
 run/main_scene="res://node_2d.tscn"
+=======
+run/main_scene="res://test.tscn"
+>>>>>>> 7d8c58dbe41680c355c66725a7c4083e410178e1
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
