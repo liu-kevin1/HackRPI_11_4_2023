@@ -9,7 +9,7 @@ func calculate():
 	var equation = global.equation
 	var start = 0
 	var stop = 500
-	var step = 1
+	var step = 0.1
 	var results = Parser.process_equation(equation, start, stop, step)
 	#print_tree()
 	

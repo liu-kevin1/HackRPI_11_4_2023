@@ -21,6 +21,10 @@ static func make_token(string):
 	if string in functions:
 		if string == "sin":
 			token = FunctionSin.new()
+		elif string == "cos":
+			token = FunctionCos.new()
+		elif string == "tan":
+			token = FunctionTan.new()
 	elif string in single_characters:
 		if string == "+":
 			token = AdditionSign.new()
@@ -142,7 +146,7 @@ static func parse(tokens):
 	
 	while len(current) > 0:
 		#print("------------")
-		#print("current - ", current)
+		print("current - ", current)
 		#print("stack - ", stack)
 		#print(len(current))
 		var token = current.pop_front()
