@@ -18,6 +18,7 @@ func _ready():
 func _process(delta):
 	if(!global.run):
 		return
+		
 	if(i<global.results.size()-1):
 		position = global.results[i]
 		position.y -= 30

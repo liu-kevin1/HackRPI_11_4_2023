@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dlvjch7r8ur34"]
 
-[ext_resource type="Script" path="res://test.gd" id="1_pwxip"]
+[ext_resource type="Script" path="res://input.gd" id="1_qdtt1"]
 [ext_resource type="Script" path="res://main.gd" id="2_6kw2e"]
 [ext_resource type="Texture2D" uid="uid://b5sip2osxwrma" path="res://guinea_pig_run.png" id="2_ye7th"]
 [ext_resource type="Script" path="res://character.gd" id="3_0vi43"]
@@ -120,7 +120,7 @@ animations = [{
 [sub_resource type="Theme" id="Theme_dbenb"]
 
 [node name="Sprite_Insert" type="Node"]
-script = ExtResource("1_pwxip")
+script = ExtResource("1_qdtt1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -34.0
