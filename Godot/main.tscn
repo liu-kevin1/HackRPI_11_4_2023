@@ -1,8 +1,41 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm8h3m8bkotul"]
 
-[ext_resource type="Script" path="res://user_line_functions.gd" id="1_2g448"]
 [ext_resource type="Script" path="res://equation_parser.gd" id="1_r3dlt"]
 [ext_resource type="Texture2D" uid="uid://bxa4klqwy20fe" path="res://kidsroom_bg1.PNG" id="3_cxkom"]
+
+[sub_resource type="GDScript" id="GDScript_h1pbr"]
+script/source = "extends Node2D
+@onready var main = $\"..\"
+
+var test_points = [
+  [0, 0],
+  [1, 1],
+  [2, 4],
+  [3, 9]
+]
+
+
+# Creates a line node at the midpoint of all the points in the 'points' 2D array
+func create_lines(points):
+	if(points.size() == 1):
+		return
+	
+	#var line = Node2D.new()
+	#add_child.call_deferred()
+	
+	var x = (points[0][0] + points[1][0]) / 2
+	var y = (points[0][1] + points[1][1]) / 2
+	var _slope = ((points[1][1] - points[0][1]) / (points[1][0] - points[0][0]))
+	
+	#line.set_position(Vector2(x, y))
+	main._draw.draw_line(Vector2(points[0][0], points[0][1]), Vector2(points[1][0], points[1][1]), Color(0.498039, 1, 0, 1), 1, false)
+	
+	#points.pop_front()
+	#create_lines(points)
+
+func _ready():
+	create_lines(test_points)
+"
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_r3dlt")
@@ -22,7 +55,7 @@ anchor_right = 0.5
 offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
-script = ExtResource("1_2g448")
+script = SubResource("GDScript_h1pbr")
 
 [node name="Control" type="Control" parent="Control"]
 texture_filter = 1
