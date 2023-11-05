@@ -1,13 +1,12 @@
 extends Node
 
 #var drawer
-
+var run = false;
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func calculate():
 	#print("test")
-	var equation = "10sin(1/10x)+5"
-	#var equation = "1/5x"
+	var equation = global.equation
 	var start = 0
 	var stop = 500
 	var step = 1
@@ -57,4 +56,7 @@ func createOBJECT(pos1, pos2, scale):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if(!run):
+		if Input.is_action_just_pressed("left_click"):
+			global.run = true
+			calculate()

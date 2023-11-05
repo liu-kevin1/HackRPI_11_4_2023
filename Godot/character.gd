@@ -1,19 +1,23 @@
 extends AnimatedSprite2D
 
-var i = 0;
-var t = 0;
-var g = 2;
-var i_v = -14;
+var i = 0
+var t = 0
+var g = 2
+var i_v = -14
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scale = Vector2(-4, 4)
 	play("run")
+	position.y = -100
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(!global.run):
+		return
 	if(i<global.results.size()-1):
 		position = global.results[i]
 		position.y -= 30
@@ -28,11 +32,11 @@ func _process(delta):
 		print("you loose")
 		if(position.y <= 550):
 			position.x += 2
-			position.y += i_v;
-			i_v += g;
+			position.y += i_v
+			i_v += g
 			rotation_degrees += 9
 		elif(position.y > 550 and t < 120):
-			rotation_degrees = 0;
+			rotation_degrees = 0
 			scale = Vector2(4, 4)
 			play("explosion")
 			t += 1

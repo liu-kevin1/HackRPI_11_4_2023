@@ -118,11 +118,13 @@ animations = [{
 [node name="Sprite_Insert" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -856.0
-offset_top = -327.0
-offset_right = 1939.0
-offset_bottom = 1721.0
+offset_left = -34.0
+offset_top = -120.0
+offset_right = 1360.0
+offset_bottom = 807.0
 texture = ExtResource("5_p2dhq")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="draw_sprite2" type="Node" parent="."]
 
