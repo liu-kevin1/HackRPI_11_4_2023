@@ -191,6 +191,9 @@ static func process_equation(equation, start, stop, step):
 		if(i/scale * 18 > 1150):
 			global.win = true
 			return results
+		if(result * 20 * -1 + 600 - 300 < 0 or result * 20 * -1 + 600 > 1200):
+			global.win = false
+			return results
 			
 		results.push_back(Vector2(i/scale * 20, result * 20 * -1 + 600))
 	return results

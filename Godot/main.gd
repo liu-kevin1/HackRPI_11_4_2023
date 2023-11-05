@@ -1,15 +1,14 @@
 extends Node
 
 #var drawer
-var ran = false;
 
 # Called when the node enters the scene tree for the first time.
 func calculate():
 	#print("test")
 	var equation = global.equation
 	var start = 0
-	var stop = 500
-	var step = 1
+	var stop = 100
+	var step = 0.5
 	var results = Parser.process_equation(equation, start, stop, step)
 	#print_tree()
 	
@@ -22,7 +21,6 @@ func calculate():
 		results[i][1] = results[i][1] - 300
 	
 	global.results = results;
-	print(global.results[0])
 	
 	for i in range(len(results)-1):
 		createOBJECT(results[i], results[i+1], 1)
@@ -56,6 +54,7 @@ func createOBJECT(pos1, pos2, scale):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(global.run and !ran):
+	if(global.run and !global.just_ran):
+		global.just_ran = true
 		calculate()
-		ran = true
+		
