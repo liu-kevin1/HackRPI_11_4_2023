@@ -21,6 +21,10 @@ static func make_token(string):
 	if string in functions:
 		if string == "sin":
 			token = FunctionSin.new()
+		elif string == "cos":
+			token = FunctionCos.new()
+		elif string == "tan":
+			token = FunctionTan.new()
 	elif string in single_characters:
 		if string == "+":
 			token = AdditionSign.new()
@@ -142,7 +146,7 @@ static func parse(tokens):
 	
 	while len(current) > 0:
 		#print("------------")
-		#print("current - ", current)
+		print("current - ", current)
 		#print("stack - ", stack)
 		#print(len(current))
 		var token = current.pop_front()
@@ -190,6 +194,9 @@ static func process_equation(equation, start, stop, step):
 		#print(result)
 		if(i/scale * 18 > 1150):
 			global.win = true
+			return results
+		if(result * 20 * -1 + 600 - 300 < 0 or result * 20 * -1 + 600 > 1200):
+			global.win = false
 			return results
 			
 		results.push_back(Vector2(i/scale * 20, result * 20 * -1 + 600))
