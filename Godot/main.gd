@@ -9,7 +9,7 @@ func _ready():
 	var equation = "10sin(1/10x)+5"
 	#var equation = "1/5x"
 	var start = 0
-	var stop = 1400
+	var stop = 500
 	var step = 1
 	var results = Parser.process_equation(equation, start, stop, step)
 	#print_tree()
