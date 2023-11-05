@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfccyy0amyos5"]
+[gd_scene load_steps=3 format=3 uid="uid://cfccyy0amyos5"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_f1vp5"]
+
+[sub_resource type="Theme" id="Theme_tbkif"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = -1.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f1vp5")
@@ -23,10 +29,13 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Play"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_tbkif")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
