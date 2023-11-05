@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7fgywe4lk4te"]
+[gd_scene load_steps=3 format=3 uid="uid://dlvjch7r8ur34"]
 
 [ext_resource type="Script" path="res://draw_path.gd" id="1_f64jx"]
+[ext_resource type="Script" path="res://main.gd" id="2_6kw2e"]
 
 [node name="Sprite_Insert" type="Node"]
 
-[node name="draw_sprite" type="Node" parent="."]
+[node name="draw_sprite2" type="Node" parent="."]
 script = ExtResource("1_f64jx")
+
+[node name="Control" type="Control" parent="draw_sprite2"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_6kw2e")

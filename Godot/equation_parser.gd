@@ -168,34 +168,38 @@ static func evaluate(token, environment):
 	return token.evaluate(environment)
 
 static func process_equation(equation, start, stop, step):
-	var tokens = tokenize(equation)
-	print("Tokens")
-	print(tokens)
-	var infix = infix_to_postfix(tokens)
-	print("Infix")
-	print(infix)
-	var stack = parse(infix)
-	print("Stack")
-	print(stack)
-	var env = {
-		"Variables": {
-			"x": 4
+	var results = []
+	var scale = 1/step
+	for i in range(start*scale, stop*scale, step*scale):
+		var tokens = tokenize(equation)
+		#print("Tokens")
+		#print(tokens)
+		var infix = infix_to_postfix(tokens)
+		#print("Infix")
+		#print(infix)
+		var stack = parse(infix)
+		#print("Stack")
+		#print(stack)
+		var env = {
+			"Variables": {
+				"x": i/scale
+			}
 		}
-	}
-	var result = evaluate(stack.pop_front(), env)
-	print("Result")
-	print(result)
-	var test = 1
-	pass
+		var result = evaluate(stack.pop_front(), env)
+		print("Result")
+		print(result)
+		results.push_back(Vector2(i/scale, result))
+	return results
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("ready and starting")
 	var test_equation := "sin(4x)-3"
 	var start := 0
 	var stop := 4
 	var step := 1
 	
-	process_equation(test_equation, start, stop, step)
+	print(process_equation(test_equation, start, stop, step))
 	pass # Replace with function body.
 
 

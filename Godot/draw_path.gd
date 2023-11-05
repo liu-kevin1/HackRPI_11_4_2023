@@ -1,4 +1,4 @@
-extends Node
+class_name Drawer extends Node
 #pre-loads the texture file under rescources
 var TEXTURE = load("res://icon.svg")
 var WIDTH = TEXTURE.get_width();
@@ -19,25 +19,29 @@ func _input(event):
 			#print("one")
 		else:
 			c_pos2 = event.position
-			createOBJECT(c_pos1, c_pos2)
+			createOBJECT(c_pos1, c_pos2, 1)
 			c_count = 0
 			#print("two")
 
 
 #create a copy of the preloade sprite
-func createOBJECT(pos1, pos2):
+func createOBJECT(pos1, pos2, scale):
 	var path = Sprite2D.new()
 
 	path.texture = TEXTURE
 	
-	var delta_x = pos2[0]-pos1[0]
-	var delta_y = pos2[1]-pos1[1]
+	var delta_x = (pos2[0]-pos1[0]) * scale
+	var delta_y = (pos2[1]-pos1[1]) * scale
 	
-	path.position.x = pos1[0]+(delta_x)/2
-	path.position.y = pos1[1]+(delta_y)/2
+	path.position.x = (pos1[0]+(delta_x)/2) * scale
+	path.position.y = (pos1[1]+(delta_y)/2) * scale
 	
-	path.scale = Vector2(sqrt((delta_x*delta_x) + (delta_y*delta_y))/WIDTH, 1)
+	path.scale = Vector2(sqrt((delta_x*delta_x)*scale + (delta_y*delta_y))/WIDTH*scale, 1)
 	path.rotation = atan((delta_y)/(delta_x));
+	print("positions: ", pos1, pos2)
+	print("path pos: " + str(path.position))
+	print("scale: " + str(path.scale))
+	print("rotation: " + str(path.rotation))
 	
 	#stores the new child under current location
 	add_child(path);
